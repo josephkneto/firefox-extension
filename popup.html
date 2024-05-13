@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Browser Security</title>
+    </head>
+    <script src="popup.js"></script>
+    <body>
+        <h1>Browser Security</h1>
+        <p id="websiteUrl-cookie-count">
+            Number of cookies from websiteUrl: <span id="wait">Loading...</span>
+        </p>
+        <p id="websiteUrl-firstparty-cookie-count">
+            Number of first party cookies from websiteUrl: <span id="wait">Loading...</span>
+        </p>
+        <p id="websiteUrl-thirdparty-cookie-count">
+            Number of third party cookies from websiteUrl: <span id="wait">Loading...</span>
+        </p>
+        <p id="websiteUrl-session-cookies">
+            Number of session cookies from websiteUrl: <span id="wait">Loading...</span>
+        </p>
+        <p id="websiteUrl-persistent-cookies">
+            Number of persistent cookies from websiteUrl: <span id="wait">Loading...</span>
+        </p>
+
+        <br>
+
+        <p id="requestUrl-cookie-count">
+            Number of cookies from requestUrl: <span id="wait">Loading...</span>
+        </p>
+        <p id="requestUrl-firstparty-cookie-count">
+            Number of first party cookies from requestUrl: <span id="wait">Loading...</span>
+        </p>
+        <p id="requestUrl-thirdparty-cookie-count">
+            Number of third party cookies from requestUrl: <span id="wait">Loading...</span>
+        </p>
+        <p id="requestUrl-session-cookies">
+            Number of session cookies from requestUrl: <span id="wait">Loading...</span>
+        </p>
+        <p id="requestUrl-persistent-cookies">
+            Number of persistent cookies from requestUrl: <span id="wait">Loading...</span>
+        </p>
+
+        <br>
+        
+        <p id="thirdparty-urls-count">
+            Number of third party URLs: <span id="wait">Loading...</span>
+        </p>
+        <button id="thirdparty-urls">Get Third Party URLs</button>
+        <ul id="thirdparty-urls-list" style="display: none"></ul>
+
+        <p id="local-storage-count">
+            Number of local storage items: <span id="wait">Loading...</span>
+        </p>
+        <button id="local-storage">Get Local Storage</button>
+        <ul id="local-storage-list" style="display: none"></ul>
+
+        <p id="session-storage-count">
+            Number of session storage items: <span id="wait">Loading...</span>
+        </p>
+        <button id="session-storage">Get Session Storage</button>
+        <ul id="session-storage-list" style="display: none"></ul>
+
+        <p id="fingerprint-count">
+            Number of Canvas Fingerprint: <span id="wait">Loading...</span>
+        </p>
+        <button id="fingerprint">Get Canvas Fingerprint</button>
+        <image id="fingerprint-data" style="display: none"></image>
+
+        <p id="unsync">
+            Unsynchronized cookies? No
+        </p>
+
+        <p id="hijacking">
+            Is session hijacking possible? <span id="wait">No</span>
+        </p>
+
+        <p id="hook">
+            Is hooking possible? <span id="wait">No</span>
+        </p>
+
+        <p id="privacy">
+            Privacy Score: <span id="wait">Loading...</span>
+        </p>
+    </body>
+</html>
