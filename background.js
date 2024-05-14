@@ -169,11 +169,7 @@ browser.webRequest.onBeforeRequest.addListener(
                 }})();`,
             })
             .then((data) => {
-                // console.log("Canvas fingerprint: ", data[0].canvas);
-                // console.log("Canvas fingerprint length: ", data[0].canvas.length);
-
                 browser.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-                    browser.runtime.sendMessage({ fingerprintLen: data[0].canvas.length });
                     browser.runtime.sendMessage({ fingerprint: data[0].canvas });
                 });
 

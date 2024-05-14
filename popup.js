@@ -176,9 +176,7 @@ document.addEventListener("DOMContentLoaded", function() {
             updateScore()
         }
 
-        if (message.fingerprintLen != undefined) {
-            document.getElementById("fingerprint-count").textContent = `Number of Canvas Fingerprint: ${message.fingerprintLen}`;
-
+        if (message.fingerprint != undefined) {
             base64 = message.fingerprint;
 
             secScore -= 1;
