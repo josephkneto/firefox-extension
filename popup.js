@@ -3,6 +3,12 @@ var localStorageData;
 var sessionStorageData;
 var fingerprint;
 var base64;
+var secScore = 1000;
+
+function updateScore() {
+    if (secScore < 0) secScore = 0;
+    document.getElementById("privacy").textContent = "Security Score: " + secScore;
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("fingerprint").addEventListener("click", () => {
@@ -92,6 +98,9 @@ document.addEventListener("DOMContentLoaded", function() {
     browser.runtime.onMessage.addListener((message) => {
         if (message.thirdPartyLength != undefined) {
             document.getElementById("thirdparty-urls-count").textContent = `Number of third party URLs: ${message.thirdPartyLength}`;
+
+            secScore -= 4;
+            updateScore()
         }
 
         if (message.thirdPartyUrls != undefined) {
@@ -100,59 +109,101 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (message.cookiesWebLen != undefined) {
             document.getElementById("websiteUrl-cookie-count").textContent = `Number of cookies from websiteUrl: ${message.cookiesWebLen}`;
+
+            secScore -= 2;
+            updateScore()
         }
 
         if (message.firstPartyCookiesWeb != undefined) {
             document.getElementById("websiteUrl-firstparty-cookie-count").textContent = `Number of first party cookies from websiteUrl: ${message.firstPartyCookiesWeb}`;
+
+            secScore -= 2;
+            updateScore()
         }
 
         if (message.thirdPartyCookiesWeb != undefined) {
             document.getElementById("websiteUrl-thirdparty-cookie-count").textContent = `Number of third party cookies from websiteUrl: ${message.thirdPartyCookiesWeb}`;
+
+            secScore -= 2;
+            updateScore()
         }
         if (message.sessionCookiesWeb != undefined) {
             document.getElementById("websiteUrl-session-cookies").textContent = `Number of session cookies from websiteUrl: ${message.sessionCookiesWeb}`;
+
+            secScore -= 2;
+            updateScore()
         }
 
         if (message.persistentCookiesWeb != undefined) {
             document.getElementById("websiteUrl-persistent-cookies").textContent = `Number of persistent cookies from websiteUrl: ${message.persistentCookiesWeb}`;
+
+            secScore -= 2;
+            updateScore()
         }
 
         if (message.cookiesReqLen != undefined) {
             document.getElementById("requestUrl-cookie-count").textContent = `Number of cookies from requestUrl: ${message.cookiesReqLen}`;
+
+            secScore -= 2;
+            updateScore()
         }
 
         if (message.firstPartyCookiesReq != undefined) {
             document.getElementById("requestUrl-firstparty-cookie-count").textContent = `Number of first party cookies from requestUrl: ${message.firstPartyCookiesReq}`;
+
+            secScore -= 2;
+            updateScore()
         }
 
         if (message.thirdPartyCookiesReq != undefined) {
             document.getElementById("requestUrl-thirdparty-cookie-count").textContent = `Number of third party cookies from requestUrl: ${message.thirdPartyCookiesReq}`;
+
+            secScore -= 2;
+            updateScore()
         }
 
         if (message.sessionCookiesReq != undefined) {
             document.getElementById("requestUrl-session-cookies").textContent = `Number of session cookies from requestUrl: ${message.sessionCookiesReq}`;
+
+            secScore -= 2;
+            updateScore()
         }
 
         if (message.persistentCookiesReq != undefined) {
             document.getElementById("requestUrl-persistent-cookies").textContent = `Number of persistent cookies from requestUrl: ${message.persistentCookiesReq}`;
+
+            secScore -= 2;
+            updateScore()
         }
 
         if (message.fingerprintLen != undefined) {
             document.getElementById("fingerprint-count").textContent = `Number of Canvas Fingerprint: ${message.fingerprintLen}`;
 
             base64 = message.fingerprint;
+
+            secScore -= 1;
+            updateScore()
         }
 
         if (message.unsync != undefined) {
             document.getElementById("unsync").textContent = "Unsynchronized cookies? Yes"
+
+            secScore -= 1;
+            updateScore()
         }
 
         if (message.hook != undefined) {
             document.getElementById("hook").textContent = "Is hooking possible? Yes"
+
+            secScore -= 5;
+            updateScore()
         }
 
         if (message.hijack != undefined) {
             document.getElementById("hijacking").textContent = "Is session hijacking possible? Yes"
+
+            secScore -= 5;
+            updateScore()
         }
 
         if (message.storageData != undefined) {
@@ -161,6 +212,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
             document.getElementById("local-storage-count").textContent = `Number of items in Local Storage: ${Object.keys(localStorage).length}`;
             document.getElementById("session-storage-count").textContent = `Number of items in Session Storage: ${Object.keys(sessionStorage).length}`;
+
+            secScore -= 2;
+            secScore -= 2;
+            updateScore()
 
             localStorageData = localStorage;
             sessionStorageData = sessionStorage;
