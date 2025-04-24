@@ -1,31 +1,39 @@
-## Projeto Tecnologias Hacker - 7º Semestre
 
-O objetivo do projeto foi construir uma extensão para firefox capaz de avaliar a segurança e privacidade para o usuário no site em que esta navegando
+# 🔐 Firefox Extension – Hacker Technologies Project (7th Semester)
 
-<br>
+This project is a **Firefox browser extension** designed to assess the **security and privacy** of the website the user is currently visiting.
 
-## Como Testar a Extensão no Firefox
+---
 
-Para testar a extensão desenvolvida diretamente no Firefox, siga os passos abaixo:
+## 🧪 How to Test the Extension in Firefox
 
-1. **Clone o Repositório**
+Follow these steps to test the extension locally:
 
-   Primeiro, você precisa clonar o repositório do projeto para o seu computador. Abra o terminal e execute o seguinte comando:
-   ```bash
-   git clone <URL-do-repositório>
+### 1. Clone the Repository
 
-2. **Abra o Firefox e Acesse a Página de Extensões**
+```bash
+git clone https://github.com/josephkneto/firefox-extension.git
+```
 
-   Abra o Firefox e digite about:debugging na barra de endereços. Pressione Enter. Isso abrirá a página de depuração de extensões.
+### 2. Open the Firefox Debugging Page
 
-3. **Habilite o Modo de Depuração**
+In Firefox, go to the address bar and type:
 
-   Na página de depuração, habilite o modo de depuração clicando no botão "Habilitar modo de depuração" se ainda não estiver ativado.
+```
+about:debugging
+```
 
-4. **Carregue a Extensão**
+Then press `Enter` to access the extension debugging interface.
 
-   Na seção "Extensões", clique no botão "Carregar Manifesto Temporário" (ou "Load Temporary Add-on"). Navegue até o diretório onde você clonou o repositório e selecione o arquivo manifest.json.
+### 3. Enable Debug Mode
 
-5. **Teste a Extensão**
+If not already active, enable debug mode by clicking on **"Habilitar depuração de extensões"**.
 
-   Agora, a extensão deve estar carregada no Firefox. Você verá um ícone da extensão na barra de ferramentas do navegador. Clique nesse ícone para abrir o popup e interagir com a extensão.
+### 4. Load the Extension
+
+Under the **"Extensões Temporárias"** section, click **"Carregar Extensão Temporária..."**.  
+Navigate to the folder where the repository was cloned and select the `manifest.json` file.
+
+### 5. Test the Extension
+
+Once loaded, the extension icon will appear in your browser toolbar. Click it to open the popup and interact with the tool.
